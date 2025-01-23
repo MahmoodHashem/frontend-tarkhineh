@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {useState} from 'react';
 import {cn} from '../helpers/common';
 import {Close} from './icons';
@@ -15,26 +14,28 @@ function GalleryModal({isOpen, onClose, branchTitle}) {
 
   return (
     <div
-    className={cn(
-      "fixed inset-0 z-50 flex items-center justify-center transition-all duration-300",
-      isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-    )}
+      className={cn(
+        'fixed inset-0 z-50 flex items-center justify-center transition-all duration-300',
+        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      )}
     >
       <div
-       className={cn(
-        "absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300",
-        isOpen ? "opacity-100" : "opacity-0"
-      )}
+        className={cn(
+          'absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300',
+          isOpen ? 'opacity-100' : 'opacity-0'
+        )}
         onClick={onClose}
       />
 
-      <div className={cn(
-        "relative w-full max-w-2xl mx-4 transition-all duration-300 transform",
-        isOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
-      )}>
-        <button 
-        onClick={onClose}
-        className="absolute z-50 left-5 top-5">
+      <div
+        className={cn(
+          'relative w-full max-w-2xl mx-4 transition-all duration-300 transform',
+          isOpen
+            ? 'opacity-100 scale-100 translate-y-0'
+            : 'opacity-0 scale-95 translate-y-4'
+        )}
+      >
+        <button onClick={onClose} className="absolute z-50 left-5 top-5">
           <Close className=" sm:w-12 sm:h-12 fill-white" />
         </button>
 

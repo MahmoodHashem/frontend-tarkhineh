@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {cn} from '../helpers/common';
 import {Close, Search} from './icons';
 
@@ -29,13 +28,13 @@ function SearchModal({isOpen, onClose}) {
         <div className="pb-6">
           <div className="flex justify-center items-center p-4 bg-neutral-200 rounded-t-lg">
             <h2 className="text-2xl  mr-auto font-bold text-center ">جستجو</h2>
-            <button
-            onClick={onClose}
-            className="mr-auto">
+            <button onClick={onClose} className="mr-auto">
               <Close className=" h-8 w-8" />
             </button>
           </div>
-            <p className='text-center mt-7'>لطفا متن خود را تایپ و سپس دکمه Enter را بزنید.</p>
+          <p className="text-center mt-7">
+            لطفا متن خود را تایپ و سپس دکمه Enter را بزنید.
+          </p>
           <div className="relative py-4 max-w-80 mx-auto">
             <input
               type="text"

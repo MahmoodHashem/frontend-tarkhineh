@@ -1,10 +1,7 @@
-/* eslint-disable prettier/prettier */
 import {useState} from 'react';
 import BranchCard from './common/BranchCard';
 import {Close} from './icons';
-import { cn } from '../helpers/common';
-
-
+import {cn} from '../helpers/common';
 
 const branches = [
   {
@@ -37,25 +34,31 @@ function BranchSelectionModal({isOpen, onClose}) {
   const [selectedBranch, setSelectedBranch] = useState(null);
 
   return (
-    <div className={cn(
-        "fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300",
-        isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-      )}>
+    <div
+      className={cn(
+        'fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300',
+        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      )}
+    >
       {/* Overlay */}
       <div
         className={cn(
-            "absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300",
-            isOpen ? "opacity-100" : "opacity-0"
-          )}
+          'absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300',
+          isOpen ? 'opacity-100' : 'opacity-0'
+        )}
         onClick={onClose}
       />
 
       {/* Modal Content */}
-      <div className={cn(
-        "relative flex flex-col bg-white rounded-xl p-6 max-w-4xl w-full mx-4 transition-all duration-300 transform h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-primary-100",
-        isOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
-      )}>
-        <button onClick={onClose} className='self-end'>
+      <div
+        className={cn(
+          'relative flex flex-col bg-white rounded-xl p-6 max-w-4xl w-full mx-4 transition-all duration-300 transform h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-primary-100',
+          isOpen
+            ? 'opacity-100 scale-100 translate-y-0'
+            : 'opacity-0 scale-95 translate-y-4'
+        )}
+      >
+        <button onClick={onClose} className="self-end">
           <Close className=" w-10 h-10" />
         </button>
 
