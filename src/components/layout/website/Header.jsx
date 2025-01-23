@@ -3,8 +3,12 @@ import {Logo, Search, ShoppingCart, User} from '../../icons';
 import {cn} from '../../../helpers/common';
 import MobileNavbar from './MobileNavbar';
 import ROUTES from '../../../router/routePaths';
+import {useState} from 'react';
+import SearchModal from '../../SearchModal';
 
 function Header() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   return (
     <header className="py-8 shadow">
       <div className="container">
@@ -66,9 +70,13 @@ function Header() {
             </NavLink>
           </nav>
           <div className="flex items-center gap-2 [&>*]:p-2 [&>*]:bg-primary-100 [&>*]:rounded [&_svg]:fill-primary">
-            <button className="hidden sm:block">
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="hidden sm:block"
+            >
               <Search />
             </button>
+
             <NavLink
               to="/cart"
               className={({isActive}) => (isActive ? 'bg-primary' : '')}
@@ -84,6 +92,10 @@ function Header() {
           </div>
         </div>
       </div>
+      <SearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+      />
     </header>
   );
 }
