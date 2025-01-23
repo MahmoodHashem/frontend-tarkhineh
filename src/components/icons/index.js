@@ -14,3 +14,4 @@ export {default as Diagram} from './Diagram';
 export {default as HomeWifi} from './HomeWifi';
 export {default as MenuBoard} from './MenuBoard';
 export {default as Gallary} from './Gallary';
+export {default as ArrowDownIcon} from './ArrowDownIcon';

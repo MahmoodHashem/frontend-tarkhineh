@@ -1,13 +1,44 @@
 import {Link, NavLink} from 'react-router';
-import {Logo, Search, ShoppingCart, User} from '../../icons';
+import {Logo, Search, ShoppingCart, User, ArrowDownIcon} from '../../icons';
 import {cn} from '../../../helpers/common';
 import MobileNavbar from './MobileNavbar';
 import ROUTES from '../../../router/routePaths';
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import SearchModal from '../../SearchModal';
 
 function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setActiveDropdown(null);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  function toggleDropdown(dropdown) {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  }
+
+  const menuItems = [
+    {title: 'غذای اصلی', href: '#'},
+    {title: 'پیش غذا', href: '#'},
+    {title: 'دسر', href: '#'},
+    {title: 'نوشیدنی', href: '#'},
+  ];
+
+  const branches = [
+    {title: ' اکباتان', href: '#'},
+    {title: ' چالوس', href: '#'},
+    {title: ' اقدسیه', href: '#'},
+    {title: ' ونک', href: '#'},
+  ];
 
   return (
     <header className="py-8 shadow">
@@ -17,7 +48,7 @@ function Header() {
           <Link>
             <Logo />
           </Link>
-          <nav className="items-center hidden gap-4 md:flex">
+          <nav className="items-center hidden gap-4 md:flex" ref={dropdownRef}>
             <NavLink
               to={ROUTES.HOME}
               className={({isActive}) =>
@@ -28,26 +59,73 @@ function Header() {
             >
               {'صفحه اصلی'}
             </NavLink>
-            <NavLink
-              to={ROUTES.BRANCH}
-              className={({isActive}) =>
-                cn('text-base', {
-                  'text-primary font-semibold': isActive,
-                })
-              }
-            >
-              {'شعبات'}
-            </NavLink>
-            <NavLink
-              to={ROUTES.MENU}
-              className={({isActive}) =>
-                cn('text-base', {
-                  'text-primary font-semibold': isActive,
-                })
-              }
-            >
-              {'منو'}
-            </NavLink>
+
+            <div className="relative">
+              <button
+                className={cn(
+                  'flex items-center gap-1 hover:text-primarytransition-all',
+                  activeDropdown === 'branch'
+                    ? 'border-b border-primary font-bold text-primary'
+                    : ''
+                )}
+                onClick={() => toggleDropdown('branch')}
+              >
+                شعبه
+                <ArrowDownIcon
+                  className={cn(
+                    'w-5 h-5 transition-transform',
+                    activeDropdown === 'branch' ? ' rotate-180' : ''
+                  )}
+                />
+              </button>
+
+              {activeDropdown === 'branch' && (
+                <div className="absolute z-50 top-full right-0 w-48 bg-white rounded-lg shadow-card py-2 mt-2">
+                  {branches.map((branch, index) => (
+                    <a
+                      key={index}
+                      href={branch.href}
+                      className="block px-4 py-2 hover:bg-primary-100 text-neutral-800"
+                    >
+                      {branch.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="relative">
+              <button
+                className={cn(
+                  'flex items-center gap-1 hover:text-primarytransition-all',
+                  activeDropdown === 'menu'
+                    ? 'border-b border-primary font-bold text-primary'
+                    : ''
+                )}
+                onClick={() => toggleDropdown('menu')}
+              >
+                منو
+                <ArrowDownIcon
+                  className={cn(
+                    'w-5 h-5 transition-transform',
+                    activeDropdown === 'menu' ? ' rotate-180' : ''
+                  )}
+                />
+              </button>
+
+              {activeDropdown === 'menu' && (
+                <div className="absolute z-50 top-full right-0 w-48 bg-white rounded-lg shadow-card py-2 mt-2">
+                  {menuItems.map((item, index) => (
+                    <a
+                      key={index}
+                      href={item.href}
+                      className="block px-4 py-2 hover:bg-primary-100 text-neutral-800"
+                    >
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
             <NavLink
               to={ROUTES.ABOUT}
               className={({isActive}) =>
