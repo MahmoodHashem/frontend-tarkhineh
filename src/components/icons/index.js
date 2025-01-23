@@ -10,3 +10,6 @@ export {default as Instagram} from './Instagram';
 export {default as Telegram} from './Telegram';
 export {default as ArrowLeft} from './ArrowLeft';
 export {default as ArrowRight} from './ArrowRight';
+export {default as Diagram} from './Diagram';
+export {default as HomeWifi} from './HomeWifi';
+export {default as MenuBoard} from './MenuBoard';
