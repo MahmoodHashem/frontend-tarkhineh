@@ -1,9 +1,9 @@
 function MenuItem({image, title}) {
   return (
     <div className="relative pt-8">
-      <div className="relative max-w-80 h-44 border-2 border-primary-400 rounded-md p-4 ">
+      <div className="relative max-w-full sm:w-80 h-44 border-2 border-primary-400 rounded-md p-4 ">
         {/* Elevated image */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[90%]">
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[70%] max-w-52 md:w-[90%]">
           <img src={image} alt={title} className="object-cover rounded-2xl" />
         </div>
 

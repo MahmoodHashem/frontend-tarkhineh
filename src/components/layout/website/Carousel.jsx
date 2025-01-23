@@ -62,7 +62,7 @@ function Carousel() {
   }, []);
 
   return (
-    <section className="relative h-[calc(100vh-200px)] overflow-hidden mb-10">
+    <section className="relative h-[calc(100vh-270px)] overflow-hidden mb-10">
       <div className="relative h-full">
         {slides.map((slide, index) => (
           <div
@@ -78,9 +78,11 @@ function Carousel() {
             />
             <div className="absolute inset-0 bg-black/40" />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white container">
-              <h1 className="text-4xl font-bold mb-4">{slide.title}</h1>
-              <p className="text-2xl mb-8">{slide.subtitle}</p>
-              <button className="bg-primary hover:bg-primary-800 text-white px-8 py-3 rounded-lg shadow-4">
+              <h1 className="text-2xl md:text-4xl text-center font-bold mb-4">
+                {slide.title}
+              </h1>
+
+              <button className="relative top-2 bg-primary hover:bg-primary-800 text-white px-8 py-3 rounded-lg shadow-4">
                 {slide.buttonText}
               </button>
             </div>
@@ -89,14 +91,14 @@ function Carousel() {
 
         <button
           onClick={nextSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2   transition-colors"
+          className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 p-2   transition-colors"
         >
           <ArrowLeft className="fill-white w-8 h-8" />
         </button>
 
         <button
           onClick={prevSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2   transition-colors"
+          className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 p-2   transition-colors"
         >
           <ArrowRight className="fill-white w-8 h-8" />
         </button>

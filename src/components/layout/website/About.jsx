@@ -7,7 +7,7 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-28 items-center">
           {/* Text Content */}
           <div className="flex flex-col items-start text-white ">
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-xl md:text-3xl font-bold mb-6">
               رستوران‌های زنجیره‌ای ترخینه
             </h2>
             <p className="mb-8 leading-7 text-justify">
@@ -19,12 +19,12 @@ function About() {
             </p>
             <button className="flex items-center justify-between gap-2 border text-white px-8 py-3 rounded-sm transition-colors self-end">
               اطلاعات بیشتر
-              <ArrowLeft className="w-6 h-6" />
+              <ArrowLeft className="w-6 h-6 fill-white" />
             </button>
           </div>
 
           {/* Icons Grid */}
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-8 text-center">
             <div className="flex flex-col items-center text-white">
               <HomeWifi className="mb-4 w-12 h-12" />
               <span>محیطی دلنشین و آرام </span>

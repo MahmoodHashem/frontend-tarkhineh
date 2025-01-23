@@ -25,9 +25,9 @@ const menuItems = [
 
 function MenuSection() {
   return (
-    <section className="container pb-16">
+    <section className="py-16 px-4 sm:px-10 sm:mx-auto">
       <h2 className="text-3xl font-bold text-center mb-24">منوی رستوران</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
         {menuItems.map((item) => (
           <MenuItem key={item.id} image={item.image} title={item.title} />
         ))}

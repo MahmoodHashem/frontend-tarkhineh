@@ -32,7 +32,7 @@ function BranchesSection() {
   return (
     <section className="py-16 px-2 sm:px-10 mx-auto">
       <h2 className="text-3xl font-bold text-center mb-16">ترخینه گردی</h2>
-      <div className="grid items-center justify-items-center grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-8 md:gap-20">
+      <div className="grid items-center justify-items-center grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-8 md:gap-20 lg:gap-8">
         {branches.map((branch) => (
           <BranchCard key={branch.id} {...branch} />
         ))}

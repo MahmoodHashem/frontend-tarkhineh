@@ -19,7 +19,7 @@ function MobileNavbar() {
       </button>
       <div
         className={cn(
-          'fixed inset-0 hidden bg-gray-900/20 transition-opacity duration-300 ease-linear opacity-0',
+          'fixed z-50 inset-0 hidden bg-gray-900/20 transition-opacity duration-300 ease-linear opacity-0',
           {
             '!block opacity-1': isOpen,
           }
