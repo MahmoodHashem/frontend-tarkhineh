@@ -1,5 +1,13 @@
+import Carousel from '../components/layout/website/Carousel';
+import MenuSection from '../components/layout/website/MenuSection';
+
 function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <Carousel />
+      <MenuSection />
+    </>
+  );
 }
 
 export default Home;

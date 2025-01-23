@@ -8,3 +8,5 @@ export {default as Close} from './Close';
 export {default as X} from './X';
 export {default as Instagram} from './Instagram';
 export {default as Telegram} from './Telegram';
+export {default as ArrowLeft} from './ArrowLeft';
+export {default as ArrowRight} from './ArrowRight';

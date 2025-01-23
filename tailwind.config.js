@@ -45,6 +45,7 @@ export default {
             0px 9px 5px 0px #0000000D, 
             0px 16px 6px 0px #00000003, 
             0px 25px 7px 0px #00000000`,
+        indicator: '0px 0px 0px 3px #E5F2E9',
       },
       colors: {
         primary: {
